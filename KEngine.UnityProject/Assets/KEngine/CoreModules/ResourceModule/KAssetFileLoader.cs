@@ -232,7 +232,9 @@ namespace KEngine
                     //Object.DestroyObject(ResultObject as UnityEngine.Object);
 
                     // Destroying GameObjects immediately is not permitted during physics trigger/contact, animation event callbacks or OnValidate. You must use Destroy instead.
-                    Object.DestroyImmediate(ResultObject as Object, true);
+					if (ResultObject != KResourceModule.Instance) {
+						Object.DestroyImmediate (ResultObject as Object, true);
+					}
                 }
 
                 //var bRemove = Caches.Remove(Url);
