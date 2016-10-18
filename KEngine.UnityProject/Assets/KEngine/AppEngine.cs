@@ -326,6 +326,8 @@ namespace KEngine
             var font = Resources.GetBuiltinResource<Font>("Arial.ttf");
             fpsTextObj.font = font;
             CacheText = fpsTextObj;
+
+			GameObject.DontDestroyOnLoad (canvasGameObj.gameObject);
 #endif
         }
 
