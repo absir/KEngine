@@ -378,7 +378,7 @@ namespace KEngine
         /// 在IsFinisehd后悔执行的回调
         /// </summary>
         /// <param name="callback"></param>
-        protected void AddCallback(LoaderDelgate callback)
+		public void AddCallback(LoaderDelgate callback)
         {
             if (callback != null)
             {
