@@ -72,17 +72,17 @@ namespace KEngine
                 {
                     if (Application.isEditor) // Editor mode : 读取Product配置目录
                     {
-                        var loadSyncPath = Path.Combine(KResourceModule.BundlesPathWithoutFileProtocol, url);
-                        Bytes = File.ReadAllBytes(loadSyncPath);
+                        var loadSyncPath = Path.Combine(KResourceModule.ProductPathWithoutFileProtocol, url);
+                        Bytes = KResourceModule.ReadAllBytes(loadSyncPath);
                     }
                     else // product mode: read streamingAssetsPath
                     {
-                        Bytes = KResourceModule.LoadSyncFromStreamingAssets(KResourceModule.BundlesPathRelative + url);
+                        Bytes = KResourceModule.LoadSyncFromStreamingAssets(url);
                     }
                 }
                 else
                 {
-                    Bytes = File.ReadAllBytes(_fullUrl);
+                    Bytes = KResourceModule.ReadAllBytes(_fullUrl);
                 }
             }
             else
@@ -118,7 +118,7 @@ namespace KEngine
             base.DoDispose();
             if (_wwwLoader != null)
             {
-                _wwwLoader.Release(IsBeenReleaseNow);
+                _wwwLoader.Release();
             }
         }
 
