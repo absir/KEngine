@@ -53,7 +53,7 @@ namespace KEngine.UI
         public UIController CreateUIController(GameObject uiObj, string uiTemplateName)
         {
 #if UNITY_5
-            UIController uiBase = uiObj.AddComponent(Types.GetType("KUI" + uiTemplateName, "Assembly-CSharp")) as UIController;
+			UIController uiBase = uiObj.AddComponent(System.Reflection.Assembly.Load ("Assembly-CSharp").GetType("KUI" + uiTemplateName)) as UIController;
 #else
             UIController uiBase = uiObj.AddComponent("KUI" + uiTemplateName) as UIController;
 #endif
